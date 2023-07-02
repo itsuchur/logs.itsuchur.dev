@@ -1,0 +1,28 @@
+body {
+    font-family: sans-serif;
+}
+
+h1, h2, h3 {
+    color: black;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+	vertical-align: middle;
+  }
+
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+}
+
+thead th {
+  background-color: #333;
+  color: white;
+  width: 25%;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2%;
+}

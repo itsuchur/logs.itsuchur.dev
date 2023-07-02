@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <h1>Report Details</h1>
+    <p>This report was requested by {{ report.search_initiated_by_name }} ({{ report.search_initiated_by_id }}). Below, you'll find the IDs of users who joined the server ({{ report.guild_id }}) between {{ report.search_from }} UTC and {{ report.search_until }} UTC.</p>
+
+    {% if report %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_id in report.found_ids  %}
+                <tr>
+                    <td>{{ user_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p>Thank you for using Sentinel!</p>
+    {% else %}
+        <p>Report not found.</p>
+    {% endif %}
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Userbot Log Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <h1>Log Details</h1>
+    <p>On {{ log.raid_time.strftime('%m/%d/%Y') }} UTC, a userbot raid occurred on server {{ log.guild_id }}, involving {{ log.raiders_id|length }} userbots.</p>
+
+    {% if log %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for raider_id in log.raiders_id %}
+                <tr>
+                    <td>{{ raider_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p>Thank you for using Sentinel!</p>
+    {% else %}
+        <p>Log not found.</p>
+    {% endif %}
+</body>
+</html>
